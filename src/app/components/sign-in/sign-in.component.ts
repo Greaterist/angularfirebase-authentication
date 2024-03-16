@@ -3,8 +3,12 @@ import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
+  standalone: true,
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
+  imports: [
+
+  ],
 })
 
 export class SignInComponent implements OnInit {

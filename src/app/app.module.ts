@@ -21,13 +21,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
     DashboardComponent,
-    SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
@@ -41,8 +40,7 @@ import { AuthService } from './shared/services/auth.service';
     AngularFireDatabaseModule,
     AppRoutingModule,
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent],
+  providers: [AuthService, provideAnimationsAsync()],
 })
 
 export class AppModule {}
