@@ -9,6 +9,8 @@ import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), 
@@ -17,7 +19,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     importProvidersFrom(provideFirebaseApp(() => initializeApp(environment.firebase))),
     importProvidersFrom(provideFirestore(() => getFirestore())),
-    importProvidersFrom(provideAuth(() => getAuth()))
+    importProvidersFrom(provideAuth(() => getAuth())),
+    importProvidersFrom(AngularFireModule.initializeApp(environment.firebase)),
+    importProvidersFrom(AngularFirestoreModule.enablePersistence()),
 
 ]
 };
